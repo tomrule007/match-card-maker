@@ -14,6 +14,10 @@ class Database {
     this.#client = new Client(config);
     logger.log(`Database client connection being created on: ${config.database}:${config.port}`);
   }
+
+  async query(text, params) {
+    return this.#client.query(text, params);
+  }
 }
 
 module.exports = new Database();
