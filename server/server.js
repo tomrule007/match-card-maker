@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 
+require('./db');
+const configureRoutes = require('./routes');
 const logger = require('./lib/logger');
 const config = require('./config/server');
 
@@ -28,5 +30,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+configureRoutes(app);
+
 logger.log(`Starting express server on ${config.HOST}:${config.PORT}`);
-app.listen(config.HOST, config.PORT);
+app.listen(config.PORT, config.HOST);
