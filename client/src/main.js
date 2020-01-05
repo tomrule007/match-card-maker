@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ExampleContainer from '@container/ExampleContainer';
+import BoardContainer from '@container/BoardContainer';
 
 ReactDOM.render(
-  React.createElement(ExampleContainer),
+  React.createElement(BoardContainer),
   document.getElementById('app'),
 );

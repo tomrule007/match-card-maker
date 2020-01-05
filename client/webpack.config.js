@@ -16,6 +16,9 @@ module.exports = {
     alias: {
       '@container': path.join(__dirname, 'src/components/container'),
       '@presentational': path.join(__dirname, 'src/components/presentational'),
+      '@src': path.join(__dirname, 'src'),
+      '@assets': path.join(__dirname, 'src/assets'),
+      '@lib': path.join(__dirname, 'src/lib'),
     },
   },
   module: {
@@ -35,6 +38,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: {
+          loader: 'svg-inline-loader',
+        },
+      },
     ],
   },
   plugins: [
@@ -48,6 +64,6 @@ module.exports = {
     proxy: {
       '/api': 'http://localhost:8080',
       '/auth': 'htpp://localhost:8080',
-    }
-  }
+    },
+  },
 };

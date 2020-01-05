@@ -29,5 +29,7 @@ module.exports = {
     },
   },
   rules: {
+    'import/no-extraneous-dependencies': 'off', // ignore this as it's not currently working right with builtins
+    'import/no-unresolved': 'off', // Doesn't do webpack resolves very well
   },
 };
